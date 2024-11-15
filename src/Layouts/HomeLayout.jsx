@@ -1,10 +1,11 @@
 import Header from "../components/Header";
 import LatestNews from "../components/LatestNews";
+import Navbar from "../components/Navbar";
 
 
 const HomeLayout = () => {
 	return (
-		<div>
+		<div className="font-poppins">
 			{/* header section  */}
 			<header>
 				<Header></Header>
@@ -15,8 +16,17 @@ const HomeLayout = () => {
 				<LatestNews></LatestNews>
 			</section>
 
-			<nav></nav>
-			<main></main>
+			{/* Navbar section container  */}
+			<nav className="w-11/12 mx-auto py-2">
+				<Navbar></Navbar>
+			</nav>
+
+			{/* main section container here  */}
+			<main className="w-11/12 mx-auto pt-5 grid md:grid-cols-12">
+				<aside className="col-span-3">Left Navbar</aside>
+				<section className="col-span-6">Main content</section>
+				<aside className="col-span-3">Right Navbar</aside>
+			</main>
 		</div>
 	);
 };
