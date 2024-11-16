@@ -9,7 +9,7 @@ const Navbar = () => {
 
 	return (
 		<div className="flex justify-between items-center">
-			<div className="">{user && user.name}</div>
+			<div className="">{user && user.email}</div>
 			<div className="nav space-x-5">
 				<Link to='/'>Home</Link>
 				<Link to='/career'>Career</Link>
@@ -17,7 +17,12 @@ const Navbar = () => {
 			</div>
 			<div className="login flex gap-2 items-center">
 				<div className="">
-					<img src={userIcon} alt="" />
+					{
+						user && user?.email ? <div>
+							<img className="w-10 rounded-full" src={user?.photoURL} alt="" />
+							<p>{user.displayName}</p>
+						</div> : <img src={userIcon} alt="" />
+					}
 				</div>
 				{
 					user && user?.email ? (
