@@ -1,4 +1,5 @@
 import { FaStar, FaEye, FaShareAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const NewsCard = (props = {}) => {
 
@@ -20,13 +21,20 @@ const NewsCard = (props = {}) => {
             <div className="p-4">
                 <h2 className="font-bold text-lg mb-2">{news.title}</h2>
                 <img
-                    className="w-full h-48 object-cover rounded-md mb-4"
+                    className="w-full h-68 object-cover rounded-md mb-4"
                     src={news.image_url}
                     alt={news.title}
                 />
-                <p className="text-gray-700 text-sm mb-4">{news.details}</p>
-                <a href="#" className="text-orange-600 font-semibold hover:underline">Read More</a>
+
+				{/* news details  */}
+                <p className="text-gray-700 text-sm mb-4">
+					{news.details.slice(0, 150)}...{''}
+					<Link to={`/news/${news._id}`} className='text-primary'>Read More</Link>
+				</p>
+
             </div>
+
+			{/* rating and total view section  */}
             <div className="flex items-center justify-between p-4 border-t">
                 <div className="flex items-center">
                     <FaStar className="text-yellow-400" />
